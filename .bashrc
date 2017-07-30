@@ -116,6 +116,9 @@ if ! shopt -oq posix; then
   fi
 fi
 
-xmodmap ~/scripts/swap-esp-caps.sh
+if  [ -z "${DISPLAY+x}" ]; then
+    xmodmap ~/scripts/swap-esp-caps.sh
+fi
+
 export PATH=/usr/local/cuda-8.0/bin${PATH:+:${PATH}}
 export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64\${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
