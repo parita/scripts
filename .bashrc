@@ -116,7 +116,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-if  [ -z "${DISPLAY+x}" ]; then
+if  [ -z "$DISPLAY:?" ]; then
     xmodmap ~/scripts/swap-esp-caps.sh
 fi
 
