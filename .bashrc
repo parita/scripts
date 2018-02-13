@@ -122,3 +122,15 @@ fi
 
 export PATH=/usr/local/cuda-8.0/bin${PATH:+:${PATH}}
 export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64\${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+
+# Virtual Environment variables
+export WORKON_HOME=$HOME/.virtualenvs
+export VIRTUALENVWRAPPER_HOOK_DIR=$WORKON_HOME
+export PROJECT_HOME=$WORKON_HOME
+source ~/.local/bin/virtualenvwrapper.sh
+
+# Map Capslock key to Esc
+xmodmap -e "remove Lock = Caps_Lock"
+xmodmap -e "keycode 9 = Escape NoSymbol Escape"
+xmodmap -e "keycode 66 = Escape NoSymbol Escape"
+xmodmap -pke > ~/.xmodmap
