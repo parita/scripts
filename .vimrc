@@ -53,10 +53,12 @@ nnoremap L $
 let mapleader = ','
 
 " easier navigation between split windows
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-h> <c-w>h
-nnoremap <c-l> <c-w>l
+set splitbelow
+set splitright
+nnoremap `<Down> <c-w>j
+nnoremap `<Up> <c-w>k
+nnoremap `<Left> <c-w>h
+nnoremap `<right> <c-w>l
 
 "folding settings
 set foldmethod=indent
@@ -128,6 +130,8 @@ autocmd BufNewFile,BufRead * highlight nbsp ctermbg=Red
 autocmd BufNewFile,BufRead * match nbsp "[\xc2\xa0]"
 autocmd BufNewFile,BufRead * highlight trailing_spaces ctermbg=Red
 autocmd BufNewFile,BufRead * match trailing_spaces /\s\+$/
+" Remove trailing whitespace for all python files when saving
+autocmd BufWritePre *.py %s/\s\+$//e
 
 "Bufexplorer
 map <leader><leader>b :BufExplorer
